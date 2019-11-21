@@ -34,14 +34,11 @@
                     <a href="index.html">
                         <li>Home</li>
                     </a>
-                    <a href="sub.html">
-                        <li>Events</li>
-                    </a>
                     <a href="about.html">
                         <li>About</li>
                     </a>
-                    <a href="way.html">
-                        <li>How to find us</li>
+                    <a href="info.html">
+                        <li>Info</li>
                     </a>
                     <a href="contact.html">
                         <li>Contact</li>
