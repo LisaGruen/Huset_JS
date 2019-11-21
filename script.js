@@ -6,18 +6,12 @@ function init() {
     const id = urlParams.get("id");
     const category = urlParams.get("category");
 
-    getTheaterEvents();
-    getHusetEvents();
-
-    /*if (id) {
+    if (id) {
         getSingleEvent(id);
-    } else if (category) {
-        getCategoryData(category);
     } else {
-        getData();
-    }*/
-    //        console.log("id")
-
+        getTheaterEvents();
+        getHusetEvents();
+    }
 
     //getNavigation();
 }
@@ -65,53 +59,51 @@ function showEvent(event) {
     const subtitle = eventCopy.querySelector(".title_event .subtitle");
     subtitle.innerHTML = event.excerpt.rendered;
 
+    const price = eventCopy.querySelector(".price");
+    price.innerHTML = event.price + 'kr';
+
+
+
+
+    // TODO: PUT DATE
+    const date = eventCopy.querySelector(".title_event .subtitle");
+    subtitle.innerHTML = event.excerpt.rendered;
+
     return eventCopy;
 }
 
-function showSingleEvent(event) {
-    const template = document.querySelector(".eventTemplate").content;
-    const eventCopy = template.cloneNode(true);
+function getSingleEvent(catId) {
+    fetch("http://www.nasehorn.com/huset_wp/wp-json/wp/v2/event/" + catId + "?_embed")
+        .then(res => res.json())
+        .then(showSingleEvent)
+}
 
-    //3. textcontent and innerhtml
+function showSingleEvent(event) {
+    const eventCopy = document.querySelector('.event-top');
+
     const h1 = eventCopy.querySelector(".title_event a")
     h1.textContent = event.title.rendered;
 
-
-    if (typeof (event._embedded["wp:featuredmedia"]) !== 'undefined') {
-        console.log(event._embedded["wp:featuredmedia"]);
-        //debugger;
-
-        const img = eventCopy.querySelector("img.cover");
-        const imgPath = event._embedded["wp:featuredmedia"][0].media_details.sizes.medium_large.source_url;
-        img.setAttribute("src", imgPath)
-        img.setAttribute("alt", "Poster for event" + event.title.rendered)
-    }
-
     const a = eventCopy.querySelector("a");
-    a.href = "sub.html?id=" + event.id
+    a.href = "sub.html?id=" + event.id;
 
-    // add content to section in template
-    const content = eventCopy.querySelector(".body_copy");
-    content.innerHTML = event.excerpt.rendered;
+    const subtitle = eventCopy.querySelector(".title_event .subtitle");
+    subtitle.innerHTML = event.excerpt.rendered;
+
+    const price = eventCopy.querySelector(".price");
+    price.innerHTML = event.price + 'kr';
+
+    const picture = document.querySelector(".picture");
+    const imgPath = event._embedded["wp:featuredmedia"][0].media_details.sizes.large.source_url;
+    picture.setAttribute("src", imgPath);
+    console.log(imgPath);
 
     const bodyDate = eventCopy.querySelector(".body_date");
     bodyDate.textContent = event.event_date;
 
-    const bodyTime = eventCopy.querySelector(".body_time");
-    bodyTime.textContent = event.start_time;
-
-    const bodyVenue = eventCopy.querySelector(".body_venue");
-    bodyVenue.textContent = event.venue;
+    document.querySelector(".description").innerHTML = event.content.rendered;
 
 
-    /*const bodyVenue = eventCopy.querySelector(".price");
-    bodyVenue.textContent = event.venue;*/
-
-    //    const bodyTicket = eventCopy.querySelector(".body_ticket");
-    //    bodyTicket.innerHTML = event.purchase_ticket;
-
-    //4 append
-    document.querySelector("#posts").appendChild(eventCopy)
 }
 
 
