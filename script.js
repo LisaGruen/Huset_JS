@@ -1,4 +1,4 @@
-n window.addEventListener("DOMContentLoaded", init);
+window.addEventListener("DOMContentLoaded", init);
 
 function init() {
     const urlParams = new URLSearchParams(window.location.search);
@@ -102,6 +102,7 @@ function showSingleEvent(event) {
 
     const bodyVenue = eventCopy.querySelector(".body_venue");
     bodyVenue.textContent = event.venue;
+
 
     /*const bodyVenue = eventCopy.querySelector(".price");
     bodyVenue.textContent = event.venue;*/
