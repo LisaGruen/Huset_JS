@@ -63,11 +63,9 @@ function showEvent(event) {
     price.innerHTML = event.price + 'kr';
 
 
-
-
     // TODO: PUT DATE
-    const date = eventCopy.querySelector(".title_event .subtitle");
-    subtitle.innerHTML = event.excerpt.rendered;
+    const date = eventCopy.querySelector(".body_date");
+    date.innerHTML = event.event_date;
 
     return eventCopy;
 }
