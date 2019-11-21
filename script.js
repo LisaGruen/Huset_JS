@@ -1,4 +1,4 @@
-window.addEventListener("DOMContentLoaded", init);
+n window.addEventListener("DOMContentLoaded", init);
 
 function init() {
     const urlParams = new URLSearchParams(window.location.search);
