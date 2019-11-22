@@ -124,7 +124,7 @@ hr {
 
 /* Header Menu*/
 header {
-    overflow: block;
+    display: block;
     padding: 20px 10px;
     padding-bottom: 30px;
 
@@ -137,6 +137,7 @@ header {
     font-size: 15px;
     line-height: 15px;
     border-radius: 4px;
+    display: block;
 }
 
 
@@ -148,7 +149,7 @@ header {
 /* Style the active/current link*/
 .header a.active {
     background-color: #0E185C;
-    color: white;
+
 }
 
 /* Add media queries for responsiveness - when the screen is 500px wide or less, stack the links on top of each other */
@@ -172,138 +173,142 @@ header {
         float: center;
     }
 
+}
 
 
 
 
+/*Slideshow*/
+* {
+    box-sizing: border-box;
+}
 
-    /*Slideshow*/
-    * {
-        box-sizing: border-box;
+/* Slideshow container */
+.slideshow-container {
+    max-width: 100%;
+    position: relative;
+    float: center;
+}
+
+/* Hide the images by default */
+.mySlides {
+    display: none;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+/* The dots/bullets/indicators */
+.dot {
+    cursor: pointer;
+    height: 10px;
+    width: 10px;
+    margin: 0 2px;
+    background-color: #D4F3FC;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+    border: 2px solid #0E185C;
+}
+
+.active,
+.dot:hover {
+
+    border: 2px solid #EC282C;
+}
+
+/* Fading animation */
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 0.5s;
+}
+
+@-webkit-keyframes fade {
+    from {
+        opacity: .2
     }
 
-    /* Slideshow container */
-    .slideshow-container {
-        max-width: 100%;
-        position: relative;
-        float: center;
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes fade {
+    from {
+        opacity: .4
     }
 
-    /* Hide the images by default */
-    .mySlides {
-        display: none;
+    to {
+        opacity: 1
     }
-
-    /* Next & previous buttons */
-    .prev,
-    .next {
-        cursor: pointer;
-        position: absolute;
-        top: 50%;
-        width: auto;
-        margin-top: -22px;
-        padding: 16px;
-        color: white;
-        font-weight: bold;
-        font-size: 18px;
-        transition: 0.6s ease;
-        border-radius: 0 3px 3px 0;
-        user-select: none;
-    }
-
-    /* Position the "next button" to the right */
-    .next {
-        right: 0;
-        border-radius: 3px 0 0 3px;
-    }
-
-    /* On hover, add a black background color with a little bit see-through */
-    .prev:hover,
-    .next:hover {
-        background-color: rgba(0, 0, 0, 0.8);
-    }
+}
 
 
-    /* The dots/bullets/indicators */
-    .dot {
-        cursor: pointer;
-        height: 10px;
-        width: 10px;
-        margin: 0 2px;
-        background-color: #D4F3FC;
-        border-radius: 50%;
-        display: inline-block;
-        transition: background-color 0.6s ease;
-        border: 2px solid #0E185C;
-    }
+/*subpages*/
+.subpage {
+    background-color: #D8EED5;
+}
 
-    .active,
-    .dot:hover {
+/* Change the background color on mouse-over */
+a:hover {
+    color: #EC282C;
+}
 
-        border: 2px solid #EC282C;
-    }
+.tickets {
+    font-weight: bold;
+    display: inline-block;
+}
 
-    /* Fading animation */
-    .fade {
-        -webkit-animation-name: fade;
-        -webkit-animation-duration: 1.5s;
-        animation-name: fade;
-        animation-duration: 0.5s;
-    }
+.picture {
+    max-width: 100%;
+    height: auto;
+}
 
-    @-webkit-keyframes fade {
-        from {
-            opacity: .2
-        }
+.map {
+    max-width: 100%;
+}
 
-        to {
-            opacity: 1
-        }
-    }
+.contactpage {
+    background-color: #FCE5F1;
 
-    @keyframes fade {
-        from {
-            opacity: .4
-        }
+}
 
-        to {
-            opacity: 1
-        }
-    }
+.header-contact {
+    padding: 20px 10px;
+    padding-bottom: 30px;
+    display: block;
+}
 
-
-    /*subpages*/
-    .subpage {
-        background-color: #D8EED5;
-    }
-
-    /* Change the background color on mouse-over */
-    a:hover {
-        color: #EC282C;
-    }
-
-    .tickets {
-        font-weight: bold;
-        display: inline-block;
-    }
-
-    .picture {
-        max-width: 100%;
-        height: auto;
-
-    }
-
-    .contactpage {
-        background-color: #FCE5F1;
-    }
-
-    .header-contact {
-        padding: 20px 10px;
-        padding-bottom: 30px;
-
-    }
-
-    /*way*/
-    .way_page {
-        background-color: #EBEBEB;
-    }
+/*way*/
+.way_page {
+    background-color: #EBEBEB;
+}
